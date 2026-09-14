@@ -1,121 +1,471 @@
 <!DOCTYPE html>
 <html lang="ta">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>2026 ஆம் ஆண்டு வரவு செலவுகள் - ஸ்ரீ சக்தி செல்வ கணபதி</title>
+    <title>2026 விநாயகர் சதுர்த்தி வரவு–செலவு விவரங்கள் - ஸ்ரீ சக்தி செல்வ கணபதி</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Mukta+Malar:wght@400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        .pdf-page-container {
-            max-width: 1000px;
+        /* Specific styles for budget page */
+        .budget-container {
+            max-width: 900px;
             margin: 40px auto;
-            padding: 20px;
+            padding: 40px;
             background: var(--white);
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            border-top: 8px solid var(--secondary-color);
+            position: relative;
+        }
+        
+        /* Subtle Ganesha Theme watermark */
+        .budget-container::before {
+            content: '\f668'; /* Om icon as a placeholder for Ganesha theme */
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 20rem;
+            color: rgba(218, 165, 32, 0.03); /* Very subtle gold */
+            z-index: 0;
+            pointer-events: none;
         }
 
-        .pdf-header {
+        .content-wrapper {
+            position: relative;
+            z-index: 1;
+        }
+
+        .temple-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 2px solid var(--gold);
+            padding-bottom: 20px;
+        }
+        .temple-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+        .temple-header p {
+            color: var(--text-dark);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+        .page-title {
+            text-align: center;
+            color: var(--secondary-color);
+            font-size: 1.8rem;
+            margin: 25px 0;
+            font-weight: 700;
+        }
+        .print-btn-container {
             display: flex;
+            justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
-            border-bottom: 2px solid #f0f0f0;
-            padding-bottom: 15px;
         }
-
+        .print-btn {
+            background-color: var(--primary-color);
+            color: var(--white);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.3s;
+            text-decoration: none;
+            font-family: inherit;
+        }
+        .print-btn:hover {
+            background-color: var(--secondary-color);
+            color: var(--white);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
         .back-btn {
             background-color: var(--primary-color);
             color: var(--white);
             text-decoration: none;
             padding: 10px 20px;
-            border-radius: 30px;
-            font-weight: 600;
+            border-radius: 5px;
+            font-size: 1rem;
             display: inline-flex;
             align-items: center;
             gap: 8px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
-            white-space: nowrap;
-            border: 2px solid transparent;
+            transition: 0.3s;
+            font-weight: 600;
         }
-
         .back-btn:hover {
-            background-color: var(--white);
-            color: var(--primary-color);
-            border: 2px solid var(--primary-color);
+            background-color: var(--secondary-color);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
         }
-
-        .pdf-title-area {
-            flex: 1;
-            text-align: center;
-        }
-
-        .pdf-title {
-            font-size: 1.8rem;
-            color: var(--primary-color);
-            margin: 0;
-            padding: 0 20px;
-        }
-
-        .pdf-viewer-container {
-            width: 100%;
-            height: 80vh;
-            border: 2px solid var(--gold);
+        .section-card {
+            background: var(--bg-light);
+            border: 1px solid #e0e0e0;
             border-radius: 8px;
-            overflow: hidden;
-            background: #f9f9f9;
+            padding: 25px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
         }
-
-        .pdf-viewer-container iframe {
+        .section-title {
+            color: var(--primary-color);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            border-bottom: 2px dashed #ccc;
+            padding-bottom: 10px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .highlight-box {
+            background-color: rgba(218, 165, 32, 0.15); /* light gold */
+            border-left: 6px solid var(--gold);
+            padding: 20px;
+            border-radius: 5px;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-align: center;
+            margin: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        table {
             width: 100%;
-            height: 100%;
-            border: none;
+            border-collapse: collapse;
+            margin-bottom: 10px;
+            background: var(--white);
         }
-
+        th, td {
+            border: 1px solid #b0b0b0; /* Clearly visible borders */
+            padding: 12px 15px;
+            text-align: left;
+        }
+        th {
+            background-color: var(--primary-color);
+            color: var(--white);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .amount-col {
+            text-align: right;
+            font-weight: 600;
+        }
+        .table-total {
+            background-color: rgba(255, 153, 51, 0.15); /* light secondary */
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--primary-color);
+        }
+        .final-summary {
+            background: linear-gradient(135deg, var(--primary-color), #5a0000);
+            color: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 8px 20px rgba(139, 0, 0, 0.3);
+            border: 3px solid var(--gold);
+            position: relative;
+            overflow: hidden;
+        }
+        .final-summary::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+            pointer-events: none;
+        }
+        .final-summary h3 {
+            color: var(--gold);
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            border-bottom: 1px solid rgba(218, 165, 32, 0.3);
+            padding-bottom: 15px;
+            position: relative;
+            z-index: 1;
+        }
+        .summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 15px;
+            font-size: 1.3rem;
+            position: relative;
+            z-index: 1;
+        }
+        .cash-in-hand {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-top: 20px;
+            padding-top: 20px;
+            border-top: 2px dashed var(--gold);
+            position: relative;
+            z-index: 1;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .cash-in-words {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-top: 10px;
+            color: var(--gold);
+            position: relative;
+            z-index: 1;
+        }
+        .note-section {
+            margin-top: 30px;
+            padding: 20px;
+            background: #fdfbf7;
+            border-left: 5px solid var(--text-light);
+            border-radius: 0 8px 8px 0;
+            font-size: 1.05rem;
+            color: var(--text-dark);
+            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+        }
+        
+        @media print {
+            body { 
+                background: white; 
+                margin: 0;
+                padding: 0;
+            }
+            .budget-container {
+                box-shadow: none;
+                border: none;
+                margin: 0 auto;
+                padding: 0;
+                max-width: 100%;
+            }
+            .budget-container::before {
+                display: none;
+            }
+            .print-btn-container {
+                display: none !important;
+            }
+            .section-card {
+                break-inside: avoid;
+                border: 1px solid #000;
+                padding: 15px;
+                box-shadow: none;
+                margin-bottom: 15px;
+            }
+            th, td {
+                border: 1px solid #000 !important;
+            }
+            .final-summary {
+                color: black;
+                background: white !important;
+                border: 2px solid black;
+                box-shadow: none;
+                page-break-inside: avoid;
+                padding: 15px;
+            }
+            .final-summary h3, .cash-in-hand, .summary-row, .cash-in-words {
+                color: black !important;
+                border-color: black !important;
+                text-shadow: none;
+            }
+            * {
+                -webkit-print-color-adjust: exact !important;
+                color-adjust: exact !important;
+            }
+        }
+        
         @media (max-width: 768px) {
-            .pdf-header {
-                flex-direction: column;
-                gap: 15px;
-                align-items: center;
-            }
-
-            .pdf-title-area {
-                text-align: center;
-                width: 100%;
-            }
-
-            .pdf-viewer-container {
-                height: 65vh;
-            }
-
-            .pdf-page-container {
+            .budget-container {
                 margin: 20px 10px;
+                padding: 20px;
+            }
+            .temple-header h1 {
+                font-size: 1.8rem;
+            }
+            .page-title {
+                font-size: 1.4rem;
+            }
+            .section-title {
+                font-size: 1.2rem;
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            th, td {
+                padding: 10px 8px;
+                font-size: 0.95rem;
+            }
+            .highlight-box {
+                font-size: 1.1rem;
+                padding: 15px;
+            }
+            .print-btn-container {
+                flex-direction: column;
+                gap: 10px;
+                align-items: stretch;
+            }
+            .back-btn, .print-btn {
+                justify-content: center;
             }
         }
     </style>
 </head>
-
 <body class="bg-cream">
 
-    <div class="pdf-page-container">
-        <div class="pdf-header">
-            <a href="index.html" class="back-btn">
-                <i class="fas fa-arrow-left"></i> பின்செல்க
-            </a>
-            <div class="pdf-title-area">
-                <h1 class="pdf-title">[2026 விநாயகர் சதுர்த்தி வரவு–செலவு விவரங்கள்]</h1>
-            </div>
-        </div>
+    <div class="container">
+        <div class="budget-container">
+            <div class="content-wrapper">
+                
+                <div class="print-btn-container">
+                    <a href="index.html" class="back-btn">
+                        <i class="fas fa-arrow-left"></i> முகப்பு செல்க
+                    </a>
+                    <button onclick="window.print()" class="print-btn">
+                        <i class="fas fa-print"></i> Print / Download
+                    </button>
+                </div>
 
-        <div class="pdf-viewer-container">
-            <!-- Append #toolbar=0&navpanes=0&scrollbar=0 to hide download and other controls -->
-            <iframe src="vinagar expense.pdf" title="PDF Document Viewer"></iframe>
+                <div class="temple-header">
+                    <h1>ஸ்ரீ சக்தி செல்வ கணபதி</h1>
+                    <p>திடீர் குப்பம் தெரு | தம்மனூர் கிராமம்</p>
+                </div>
+
+                <h2 class="page-title">2026 விநாயகர் சதுர்த்தி வரவு–செலவு விவரங்கள்</h2>
+
+                <!-- 1. உண்டியல் விவரங்கள் -->
+                <div class="section-card">
+                    <h3 class="section-title">1. உண்டியல் விவரங்கள்</h3>
+                    <div class="highlight-box">
+                        2025–2026 ஆம் ஆண்டிற்கான உண்டியல் வரவு: ₹5,520/-
+                    </div>
+                </div>
+
+                <!-- 2. வசூல் விவரங்கள் -->
+                <div class="section-card">
+                    <h3 class="section-title">
+                        2. வசூல் விவரங்கள்
+                        <span style="font-size: 1rem; font-weight: normal; color: var(--text-light); background: #eee; padding: 4px 10px; border-radius: 4px;">
+                            <i class="far fa-clock"></i> தேதி: 13-09-2026 | நேரம்: இரவு 9.00 மணி வரை
+                        </span>
+                    </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%">எண்</th>
+                                <th width="70%">பெயர்</th>
+                                <th width="20%" class="amount-col">தொகை</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>மணி – பாஊன்</td><td class="amount-col">₹200</td></tr>
+                            <tr><td>2</td><td>மோகன் மையூர்</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>3</td><td>பிரகாஷ்</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>4</td><td>தனவேல்</td><td class="amount-col">₹1,000</td></tr>
+                            <tr><td>5</td><td>கிருஷ்ணமூர்த்தி</td><td class="amount-col">₹1,000</td></tr>
+                            <tr><td>6</td><td>தயாளன்</td><td class="amount-col">₹1,000</td></tr>
+                            <tr><td>7</td><td>பாஸ்கரன்</td><td class="amount-col">₹1,000</td></tr>
+                            <tr><td>8</td><td>கமலவேணி</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>9</td><td>சந்தானம்</td><td class="amount-col">₹1,000</td></tr>
+                            <tr><td>10</td><td>தினேஷ் (சந்தானத்தின் நண்பர்)</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>11</td><td>ஹரிதாசன்</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>12</td><td>ஏத்துராஜ்</td><td class="amount-col">₹500</td></tr>
+                            <tr><td>13</td><td>குணா</td><td class="amount-col">₹500</td></tr>
+                            <tr class="table-total">
+                                <td colspan="2" style="text-align: right;">மொத்த வசூல்:</td>
+                                <td class="amount-col">₹8,700/-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 3. மொத்த வரவு -->
+                <div class="section-card">
+                    <h3 class="section-title">3. மொத்த வரவு</h3>
+                    <table>
+                        <tbody>
+                            <tr>
+                                <td width="80%">உண்டியல் வரவு</td>
+                                <td width="20%" class="amount-col">₹5,520</td>
+                            </tr>
+                            <tr>
+                                <td>வசூல்</td>
+                                <td class="amount-col">₹8,700</td>
+                            </tr>
+                            <tr class="table-total">
+                                <td style="text-align: right;">மொத்த வரவு:</td>
+                                <td class="amount-col">₹14,220/-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 4. செலவு விவரங்கள் -->
+                <div class="section-card">
+                    <h3 class="section-title">4. செலவு விவரங்கள்</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th width="10%">எண்</th>
+                                <th width="70%">செலவு விவரம்</th>
+                                <th width="20%" class="amount-col">தொகை</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>புதிய ஸ்பீக்கர் வாங்கியது (New Speaker Purchase)</td>
+                                <td class="amount-col">₹11,570</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>விநாயகர் சதுர்த்தி சிறப்பு பூஜை பொருட்கள் (Vinayagar Chathurthi Special Pooja Items)</td>
+                                <td class="amount-col">₹1,500</td>
+                            </tr>
+                            <tr class="table-total">
+                                <td colspan="2" style="text-align: right;">மொத்த செலவு:</td>
+                                <td class="amount-col">₹13,070/-</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 5. கையிருப்பு -->
+                <div class="final-summary">
+                    <h3>5. கையிருப்பு விவரம்</h3>
+                    <div class="summary-row">
+                        <span>மொத்த வரவு:</span>
+                        <span>₹14,220/-</span>
+                    </div>
+                    <div class="summary-row">
+                        <span>மொத்த செலவு:</span>
+                        <span>₹13,070/-</span>
+                    </div>
+                    <div class="cash-in-hand">
+                        கையிருப்பு (Cash in Hand): ₹1,150/-
+                    </div>
+                    <div class="cash-in-words">
+                        ஒரு ஆயிரத்து நூற்று ஐம்பது ரூபாய் மட்டும்.
+                    </div>
+                </div>
+
+                <!-- 6. குறிப்பு -->
+                <div class="note-section">
+                    <strong>குறிப்பு:</strong> மேற்கண்ட வரவு–செலவு விவரங்கள் <strong>13-09-2026 அன்று இரவு 9.00 மணி வரை</strong> பெறப்பட்ட மற்றும் செலவிடப்பட்ட தொகைகளின் அடிப்படையில் தயாரிக்கப்பட்டவை.
+                </div>
+
+            </div>
         </div>
     </div>
 
 </body>
-
 </html>
