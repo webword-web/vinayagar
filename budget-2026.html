@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ta">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,10 +20,11 @@
             border-top: 8px solid var(--secondary-color);
             position: relative;
         }
-        
+
         /* Subtle Ganesha Theme watermark */
         .budget-container::before {
-            content: '\f668'; /* Om icon as a placeholder for Ganesha theme */
+            content: '\f668';
+            /* Om icon as a placeholder for Ganesha theme */
             font-family: 'Font Awesome 6 Free';
             font-weight: 900;
             position: absolute;
@@ -30,7 +32,8 @@
             left: 50%;
             transform: translate(-50%, -50%);
             font-size: 20rem;
-            color: rgba(218, 165, 32, 0.03); /* Very subtle gold */
+            color: rgba(218, 165, 32, 0.03);
+            /* Very subtle gold */
             z-index: 0;
             pointer-events: none;
         }
@@ -46,16 +49,19 @@
             border-bottom: 2px solid var(--gold);
             padding-bottom: 20px;
         }
+
         .temple-header h1 {
             color: var(--primary-color);
             font-size: 2.2rem;
             margin-bottom: 5px;
         }
+
         .temple-header p {
             color: var(--text-dark);
             font-size: 1.2rem;
             font-weight: 600;
         }
+
         .page-title {
             text-align: center;
             color: var(--secondary-color);
@@ -63,12 +69,14 @@
             margin: 25px 0;
             font-weight: 700;
         }
+
         .print-btn-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
             margin-bottom: 20px;
         }
+
         .print-btn {
             background-color: var(--primary-color);
             color: var(--white);
@@ -84,11 +92,13 @@
             text-decoration: none;
             font-family: inherit;
         }
+
         .print-btn:hover {
             background-color: var(--secondary-color);
             color: var(--white);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .back-btn {
             background-color: var(--primary-color);
             color: var(--white);
@@ -102,18 +112,21 @@
             transition: 0.3s;
             font-weight: 600;
         }
+
         .back-btn:hover {
             background-color: var(--secondary-color);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
         }
+
         .section-card {
             background: var(--bg-light);
             border: 1px solid #e0e0e0;
             border-radius: 8px;
             padding: 25px;
             margin-bottom: 25px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.02);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.02);
         }
+
         .section-title {
             color: var(--primary-color);
             font-size: 1.4rem;
@@ -126,8 +139,10 @@
             flex-wrap: wrap;
             gap: 10px;
         }
+
         .highlight-box {
-            background-color: rgba(218, 165, 32, 0.15); /* light gold */
+            background-color: rgba(218, 165, 32, 0.15);
+            /* light gold */
             border-left: 6px solid var(--gold);
             padding: 20px;
             border-radius: 5px;
@@ -136,41 +151,52 @@
             color: var(--primary-color);
             text-align: center;
             margin: 15px 0;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
         }
+
         table {
             width: 100%;
             border-collapse: collapse;
             margin-bottom: 10px;
             background: var(--white);
         }
-        th, td {
-            border: 1px solid #b0b0b0; /* Clearly visible borders */
+
+        th,
+        td {
+            border: 1px solid #b0b0b0;
+            /* Clearly visible borders */
             padding: 12px 15px;
             text-align: left;
         }
+
         th {
             background-color: var(--primary-color);
             color: var(--white);
             font-weight: 600;
             font-size: 1.1rem;
         }
+
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
+
         tr:hover {
             background-color: #f1f1f1;
         }
+
         .amount-col {
             text-align: right;
             font-weight: 600;
         }
+
         .table-total {
-            background-color: rgba(255, 153, 51, 0.15); /* light secondary */
+            background-color: rgba(255, 153, 51, 0.15);
+            /* light secondary */
             font-weight: 700;
             font-size: 1.2rem;
             color: var(--primary-color);
         }
+
         .final-summary {
             background: linear-gradient(135deg, var(--primary-color), #5a0000);
             color: var(--white);
@@ -183,13 +209,18 @@
             position: relative;
             overflow: hidden;
         }
+
         .final-summary::before {
             content: '';
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: url('data:image/svg+xml;utf8,<svg width="20" height="20" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><circle cx="2" cy="2" r="2" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
             pointer-events: none;
         }
+
         .final-summary h3 {
             color: var(--gold);
             font-size: 1.8rem;
@@ -199,6 +230,7 @@
             position: relative;
             z-index: 1;
         }
+
         .summary-row {
             display: flex;
             justify-content: space-between;
@@ -207,6 +239,7 @@
             position: relative;
             z-index: 1;
         }
+
         .cash-in-hand {
             font-size: 1.8rem;
             font-weight: 700;
@@ -216,8 +249,9 @@
             border-top: 2px dashed var(--gold);
             position: relative;
             z-index: 1;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
         }
+
         .cash-in-words {
             font-size: 1.2rem;
             font-weight: 600;
@@ -226,6 +260,7 @@
             position: relative;
             z-index: 1;
         }
+
         .note-section {
             margin-top: 30px;
             padding: 20px;
@@ -234,15 +269,16 @@
             border-radius: 0 8px 8px 0;
             font-size: 1.05rem;
             color: var(--text-dark);
-            box-shadow: 0 2px 5px rgba(0,0,0,0.03);
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
         }
-        
+
         @media print {
-            body { 
-                background: white; 
+            body {
+                background: white;
                 margin: 0;
                 padding: 0;
             }
+
             .budget-container {
                 box-shadow: none;
                 border: none;
@@ -250,12 +286,15 @@
                 padding: 0;
                 max-width: 100%;
             }
+
             .budget-container::before {
                 display: none;
             }
+
             .print-btn-container {
                 display: none !important;
             }
+
             .section-card {
                 break-inside: avoid;
                 border: 1px solid #000;
@@ -263,9 +302,12 @@
                 box-shadow: none;
                 margin-bottom: 15px;
             }
-            th, td {
+
+            th,
+            td {
                 border: 1px solid #000 !important;
             }
+
             .final-summary {
                 color: black;
                 background: white !important;
@@ -274,58 +316,73 @@
                 page-break-inside: avoid;
                 padding: 15px;
             }
-            .final-summary h3, .cash-in-hand, .summary-row, .cash-in-words {
+
+            .final-summary h3,
+            .cash-in-hand,
+            .summary-row,
+            .cash-in-words {
                 color: black !important;
                 border-color: black !important;
                 text-shadow: none;
             }
+
             * {
                 -webkit-print-color-adjust: exact !important;
                 color-adjust: exact !important;
             }
         }
-        
+
         @media (max-width: 768px) {
             .budget-container {
                 margin: 20px 10px;
                 padding: 20px;
             }
+
             .temple-header h1 {
                 font-size: 1.8rem;
             }
+
             .page-title {
                 font-size: 1.4rem;
             }
+
             .section-title {
                 font-size: 1.2rem;
                 flex-direction: column;
                 align-items: flex-start;
             }
-            th, td {
+
+            th,
+            td {
                 padding: 10px 8px;
                 font-size: 0.95rem;
             }
+
             .highlight-box {
                 font-size: 1.1rem;
                 padding: 15px;
             }
+
             .print-btn-container {
                 flex-direction: column;
                 gap: 10px;
                 align-items: stretch;
             }
-            .back-btn, .print-btn {
+
+            .back-btn,
+            .print-btn {
                 justify-content: center;
             }
         }
     </style>
 </head>
+
 <body class="bg-cream">
 
     <div class="container">
         <div class="budget-container">
             <div class="content-wrapper">
-                
+
                 <div class="print-btn-container">
                     <a href="index.html" class="back-btn">
                         <i class="fas fa-arrow-left"></i> முகப்பு செல்க
@@ -354,7 +411,8 @@
                 <div class="section-card">
                     <h3 class="section-title">
                         2. வசூல் விவரங்கள்
-                        <span style="font-size: 1rem; font-weight: normal; color: var(--text-light); background: #eee; padding: 4px 10px; border-radius: 4px;">
+                        <span
+                            style="font-size: 1rem; font-weight: normal; color: var(--text-light); background: #eee; padding: 4px 10px; border-radius: 4px;">
                             <i class="far fa-clock"></i> தேதி: 13-09-2026 | நேரம்: இரவு 9.00 மணி வரை
                         </span>
                     </h3>
@@ -367,19 +425,71 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr><td>1</td><td>மணி – பாஊன்</td><td class="amount-col">₹200</td></tr>
-                            <tr><td>2</td><td>மோகன் மையூர்</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>3</td><td>பிரகாஷ்</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>4</td><td>தனவேல்</td><td class="amount-col">₹1,000</td></tr>
-                            <tr><td>5</td><td>கிருஷ்ணமூர்த்தி</td><td class="amount-col">₹1,000</td></tr>
-                            <tr><td>6</td><td>தயாளன்</td><td class="amount-col">₹1,000</td></tr>
-                            <tr><td>7</td><td>பாஸ்கரன்</td><td class="amount-col">₹1,000</td></tr>
-                            <tr><td>8</td><td>கமலவேணி</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>9</td><td>சந்தானம்</td><td class="amount-col">₹1,000</td></tr>
-                            <tr><td>10</td><td>தினேஷ் (சந்தானத்தின் நண்பர்)</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>11</td><td>ஹரிதாசன்</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>12</td><td>ஏத்துராஜ்</td><td class="amount-col">₹500</td></tr>
-                            <tr><td>13</td><td>குணா</td><td class="amount-col">₹500</td></tr>
+                            <tr>
+                                <td>1</td>
+                                <td>மணி – பாஊன்</td>
+                                <td class="amount-col">₹200</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>மோகன் மையூர்</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>பிரகாஷ்</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>தனவேல்</td>
+                                <td class="amount-col">₹1,000</td>
+                            </tr>
+                            <tr>
+                                <td>5</td>
+                                <td>கிருஷ்ணமூர்த்தி</td>
+                                <td class="amount-col">₹1,000</td>
+                            </tr>
+                            <tr>
+                                <td>6</td>
+                                <td>தயாளன்</td>
+                                <td class="amount-col">₹1,000</td>
+                            </tr>
+                            <tr>
+                                <td>7</td>
+                                <td>பாஸ்கரன்</td>
+                                <td class="amount-col">₹1,000</td>
+                            </tr>
+                            <tr>
+                                <td>8</td>
+                                <td>கமலவேணி</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>9</td>
+                                <td>சந்தானம்</td>
+                                <td class="amount-col">₹1,000</td>
+                            </tr>
+                            <tr>
+                                <td>10</td>
+                                <td>தினேஷ் (சந்தானத்தின் நண்பர்)</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>11</td>
+                                <td>ஹரிதாசன்</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>12</td>
+                                <td>ஏத்துராஜ்</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
+                            <tr>
+                                <td>13</td>
+                                <td>குணா</td>
+                                <td class="amount-col">₹500</td>
+                            </tr>
                             <tr class="table-total">
                                 <td colspan="2" style="text-align: right;">மொத்த வசூல்:</td>
                                 <td class="amount-col">₹8,700/-</td>
@@ -425,10 +535,14 @@
                                 <td>1</td>
                                 <td>புதிய ஸ்பீக்கர் வாங்கியது (New Speaker Purchase)</td>
                                 <td class="amount-col">₹11,570</td>
+                                <a href="bill.jpeg" target="_blank" class="pdf-view">
+                                    📄speaker Bill விவரங்களை பார்வையிட
+                                </a>
                             </tr>
                             <tr>
                                 <td>2</td>
-                                <td>விநாயகர் சதுர்த்தி சிறப்பு பூஜை பொருட்கள் (Vinayagar Chathurthi Special Pooja Items)</td>
+                                <td>விநாயகர் சதுர்த்தி சிறப்பு பூஜை பொருட்கள் (Vinayagar Chathurthi Special Pooja Items)
+                                </td>
                                 <td class="amount-col">₹1,500</td>
                             </tr>
                             <tr class="table-total">
@@ -460,7 +574,8 @@
 
                 <!-- 6. குறிப்பு -->
                 <div class="note-section">
-                    <strong>குறிப்பு:</strong> மேற்கண்ட வரவு–செலவு விவரங்கள் <strong>13-09-2026 அன்று இரவு 9.00 மணி வரை</strong> பெறப்பட்ட மற்றும் செலவிடப்பட்ட தொகைகளின் அடிப்படையில் தயாரிக்கப்பட்டவை.
+                    <strong>குறிப்பு:</strong> மேற்கண்ட வரவு–செலவு விவரங்கள் <strong>13-09-2026 அன்று இரவு 9.00 மணி
+                        வரை</strong> பெறப்பட்ட மற்றும் செலவிடப்பட்ட தொகைகளின் அடிப்படையில் தயாரிக்கப்பட்டவை.
                 </div>
 
             </div>
@@ -468,4 +583,5 @@
     </div>
 
 </body>
+
 </html>
